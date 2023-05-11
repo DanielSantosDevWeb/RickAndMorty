@@ -4,6 +4,9 @@ import App from './App.jsx'
 import Personagens from './pages/Personagens.jsx'
 import Home from './pages/Home.jsx'
 import Episodios from './pages/Episodios.jsx'
+import { Theme } from './Theme.jsx'
+import { ThemeProvider } from 'styled-components'
+import { GlobalStyle } from './GlobalStyle.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
@@ -32,7 +35,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* <App /> */}
-    <RouterProvider router={router} ></RouterProvider>
+    <ThemeProvider theme={Theme}>
+      <GlobalStyle />
+      <RouterProvider router={router} ></RouterProvider>
+    </ThemeProvider>
   </React.StrictMode>,
 )
