@@ -120,7 +120,7 @@ Error generating stack: `+i.message+`
   flex-direction: column;
   align-items: center;
 
-`,d1="/rickandmorty/assets/rickandmorty-c7c35ff2.png",p1=rt.div`
+`,d1="/RickAndMorty/assets/rickandmorty-c7c35ff2.png",p1=rt.div`
 
   width: 100%;
   color: ${({theme:e})=>e.colors.branco};
