@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import Personagens from './pages/Personagens.jsx'
 import Home from './pages/Home.jsx'
-import Episodios from './pages/Episodios.jsx'
+import Mundos from './pages/Mundos.jsx'
 import { Theme } from './Theme.jsx'
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from './GlobalStyle.jsx'
@@ -25,8 +25,8 @@ const router = createBrowserRouter([
         element: <Personagens />,
       },
       {
-        path: '/episodios',
-        element: <Episodios />
+        path: '/Mundos',
+        element: <Mundos />
       }
     ]
   },

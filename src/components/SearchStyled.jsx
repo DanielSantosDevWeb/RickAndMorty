@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 export const SearchStyled = styled.form`
-  display: flex;
+  display: inline-flex;
+  width: 90%;
   
 
   input {
-    width: 85%;
+    width: 90%;
     height: 30px;
     border-radius: 4px;
     padding: 7px;
@@ -20,5 +21,10 @@ export const SearchStyled = styled.form`
   button {
     width: 15%;
     border-radius: 4px;
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: 600px) {
+    width: 500px;
   }
 `

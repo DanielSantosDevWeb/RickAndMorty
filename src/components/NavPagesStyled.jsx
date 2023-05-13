@@ -12,5 +12,6 @@ export const NavPagesStyled = styled.div`
     margin: 10px;
     height: 30px;
     border-radius: 4px;
+    cursor: pointer;
   }
 `

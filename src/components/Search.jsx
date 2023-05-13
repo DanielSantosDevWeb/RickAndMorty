@@ -3,7 +3,7 @@ import { SearchStyled } from './SearchStyled'
 import { useState } from 'react'
 import { BsSearch } from 'react-icons/bs'
 
-function Search({ setUrl, InfosPers }) {
+function Search({ setUrl, url, tipo }) {
 
   const [NickName, setNickName] = useState('')
 
@@ -11,16 +11,19 @@ function Search({ setUrl, InfosPers }) {
     setNickName(e.target.value);
   }
 
+
+
   const mudarUrl = (e) => {
     e.preventDefault()
-    setUrl(`https://rickandmortyapi.com/api/character/?name=${NickName}`);
+    setUrl(`${url}?name=${NickName}`);
+    console.log(`${url}?name=${NickName}`);
     console.log(NickName);
   }
 
   return (
     <SearchStyled>
       <>
-        <input type="search" placeholder='Nome do Personagem' onChange={mudarNick} />
+        <input type="search" placeholder={`nome do ${tipo}`} onChange={mudarNick} />
         <button type='submit' onClick={mudarUrl}><BsSearch /></button>
       </>
     </SearchStyled>

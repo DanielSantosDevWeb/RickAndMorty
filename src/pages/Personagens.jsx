@@ -8,12 +8,14 @@ import { AiOutlineArrowUp } from 'react-icons/ai'
 import Search from '../components/Search'
 import NavPages from '../components/NavPages'
 import { ContainerStyled } from '../elements/ContainerStyled'
+import ErrorPage from '../components/ErrorPage'
 
 function Personagens() {
 
   const [InfosPers, setInfosPers] = useState()
   const [Personagens, setPersonagens] = useState()
-  const [url, setUrl] = useState('https://rickandmortyapi.com/api/character/?name=')
+  const [url, setUrl] = useState('https://rickandmortyapi.com/api/character/')
+  const [urlPadrao] = useState('https://rickandmortyapi.com/api/character/')
 
   useEffect(() => {
     fetch(url)
@@ -21,7 +23,6 @@ function Personagens() {
       .then(obj => {
         setInfosPers(obj.info)
         setPersonagens(obj.results)
-        console.log(obj.results);
       })
   }, [url])
 
@@ -31,7 +32,7 @@ function Personagens() {
 
   return (
     <>
-      <Search setUrl={setUrl} />
+      <Search setUrl={setUrl} url={urlPadrao} tipo='personagem' />
 
       <ResultsStyled>
         {InfosPers &&
@@ -51,13 +52,27 @@ function Personagens() {
               <img src={i.image} alt="" />
               <h2> {i.name}</h2>
               <div><span>Specie</span>: {i.species}</div>
-              <div><span>Status</span>: {i.status}</div>
-              <div><span>Gender</span>: {i.gender}</div>
+              <div>
+                <span>Status</span>:
+                {i.status === 'Alive' ? <> {i.status} 😀</> : null}
+                {i.status === 'Dead' ? <> {i.status} 💀</> : null}
+                {i.status === 'unknown' ? <> {i.status} </> : null}
+
+
+              </div>
+              <div>
+                <span>Gender</span>:
+                {i.gender === 'Male' ? <> {i.gender} ♂</> : null}
+                {i.gender === 'Female' ? <> {i.gender} ♀</> : null}
+                {i.gender === 'unknown' ? <> {i.gender} </> : null}
+              </div>
               <div><span>Origin</span>: {i.origin.name}</div>
             </PersonagemStyled>
-          )) : <div>Sem personagens disponiveis</div>
+          )) : null
         }
       </PersonagensStyled >
+
+      {Personagens ? null : <ErrorPage />}
 
       {InfosPers && (
         <NavPages InfosPers={InfosPers} setUrl={setUrl} />

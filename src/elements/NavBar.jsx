@@ -10,7 +10,7 @@ function NavBar() {
       <ul>
         <li><Link to='/personagens'>Personagens</Link></li>
         <li className='home' ><Link to='/'> <ImEarth /> </Link></li>
-        <li><Link to='/episodios' >Episodios</Link></li>
+        <li><Link to='/Mundos' >Mundos</Link></li>
       </ul>
     </NavBarStyled>
   )

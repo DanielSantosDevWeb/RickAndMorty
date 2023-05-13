@@ -1,20 +1,12 @@
 import styled from "styled-components";
 
-export const PersonagensStyled = styled.div`
+export const MundosStyled = styled.div`
+
   display: grid;
+  
   gap: 30px;
-  align-items: center;
-  justify-content: center;
-
-  .results {
-    color: white;
-    display: flex;
-    justify-content: space-around;
-
-    span {
-      font-weight: 500;
-    }
-  }
+  justify-content: stretch;
+  align-items: stretch;
 
   @media screen and (min-width: 700px) {
     grid-template-columns: 1fr 1fr;
@@ -26,6 +18,8 @@ export const PersonagensStyled = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     margin: 30px 20px;
     gap: 60px;
+    max-width: 1000px;
+    min-width: auto;
 
 }
 `
